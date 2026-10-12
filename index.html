@@ -20,7 +20,6 @@
     overflow-x: hidden;
   }
 
-  /* 暗黑深渊背景：纯黑 + 血红光晕 */
   body::before {
     content: "";
     position: fixed;
@@ -29,28 +28,19 @@
       radial-gradient(circle at 50% 100%, rgba(140, 10, 20, 0.5), transparent 55%),
       radial-gradient(circle at 15% 20%, rgba(80, 5, 15, 0.5), transparent 50%),
       radial-gradient(circle at 85% 25%, rgba(100, 8, 18, 0.4), transparent 50%),
-      radial-gradient(circle at 50% 50%, rgba(40, 2, 8, 0.6), transparent 70%),
       linear-gradient(180deg, #050203 0%, #0a0305 50%, #050203 100%);
     z-index: -2;
-    animation: abyssBreath 8s ease-in-out infinite;
   }
 
-  /* 烟雾/血雾飘动层 */
   body::after {
     content: "";
     position: fixed;
     inset: 0;
     background-image:
       radial-gradient(ellipse 60% 40% at 20% 80%, rgba(120, 8, 16, 0.25), transparent),
-      radial-gradient(ellipse 50% 35% at 80% 70%, rgba(100, 5, 12, 0.22), transparent),
-      radial-gradient(ellipse 70% 45% at 50% 95%, rgba(160, 15, 25, 0.2), transparent);
+      radial-gradient(ellipse 50% 35% at 80% 70%, rgba(100, 5, 12, 0.22), transparent);
     animation: smokeDrift 14s ease-in-out infinite;
     z-index: -1;
-  }
-
-  @keyframes abyssBreath {
-    0%, 100% { opacity: 0.9; }
-    50% { opacity: 1; }
   }
 
   @keyframes smokeDrift {
@@ -65,13 +55,10 @@
     border: 1px solid rgba(140, 20, 30, 0.4);
     border-radius: 14px;
     padding: 34px 26px;
-    box-shadow:
-      0 0 50px rgba(140, 10, 20, 0.2),
-      inset 0 0 30px rgba(140, 10, 20, 0.08);
+    box-shadow: 0 0 50px rgba(140, 10, 20, 0.2);
     position: relative;
   }
 
-  /* 卡片四角血红描边 */
   .card::before {
     content: "";
     position: absolute;
@@ -139,7 +126,6 @@
     text-align: center;
     outline: none;
     margin-bottom: 16px;
-    transition: 0.2s;
   }
   input:focus {
     border-color: rgba(220, 40, 50, 0.9);
@@ -156,13 +142,9 @@
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.2s;
     letter-spacing: 3px;
-    text-shadow: 0 0 10px rgba(0,0,0,0.5);
   }
-  button:hover {
-    box-shadow: 0 0 25px rgba(200, 30, 40, 0.6);
-  }
+  button:hover { box-shadow: 0 0 25px rgba(200, 30, 40, 0.6); }
   button:disabled { opacity: 0.4; cursor: not-allowed; }
 
   .err {
@@ -195,7 +177,6 @@
     width: 0%;
     background: linear-gradient(90deg, #6a0a12, #c9202e);
     transition: width 0.3s ease;
-    box-shadow: 0 0 10px rgba(200, 30, 40, 0.6);
   }
 
   .q {
@@ -222,7 +203,6 @@
     background: rgba(140, 15, 25, 0.15);
     color: #fff;
     transform: translateX(3px);
-    box-shadow: 0 0 20px rgba(200, 30, 40, 0.2);
   }
 
   .nav {
@@ -238,9 +218,7 @@
     border: 1px solid rgba(140, 20, 30, 0.35);
     color: #d0c0c0;
     font-weight: normal;
-    letter-spacing: 2px;
   }
-  .nav button:hover { background: rgba(140, 15, 25, 0.2); }
   .nav button:disabled { opacity: 0.25; }
 
   .result-emoji {
@@ -292,7 +270,6 @@
     font-size: 13px;
     margin-bottom: 10px;
     letter-spacing: 3px;
-    text-shadow: 0 0 10px rgba(200, 30, 40, 0.4);
   }
   .block-content {
     color: #c0b0b0;
@@ -310,7 +287,6 @@
     width: 80px;
     color: #9a8080;
     flex-shrink: 0;
-    letter-spacing: 1px;
   }
   .stat-bar {
     flex: 1;
@@ -324,7 +300,6 @@
     height: 100%;
     background: linear-gradient(90deg, #6a0a12, #c9202e);
     border-radius: 3px;
-    box-shadow: 0 0 8px rgba(200, 30, 40, 0.6);
   }
   .stat-num {
     width: 34px;
@@ -414,10 +389,8 @@
 
 </div>
 
-<script>// ============ 28 道题库（前 14 题）============
-// 每个选项格式：[选项文字, 罪维度, 情绪维度]
-// 罪：pride傲慢 / envy嫉妒 / wrath暴怒 / sloth懒惰 / greed贪婪 / gluttony暴食 / lust色欲
-// 情绪：joy喜 / anger怒 / sorrow哀 / fear惧 / love爱 / hate恶 / desire欲
+<script>```javascript
+// ============ 28 道题库 ============
 const QUESTIONS = [
   { q: "你站在一群人中间，他们正在低声交谈。你的第一反应是——", a: [
     ["他们一定在说我什么。", "envy", "fear"],
@@ -502,8 +475,8 @@ const QUESTIONS = [
     ["有动力，觉得总有一天能实现。", "greed", "desire"],
     ["满足，回味了很久。", "gluttony", "joy"],
     ["没什么感觉，继续睡。", "sloth", "sorrow"]
-  ]}
-]}, { q: "你正在减重，但朋友端来了你最爱的甜点。你会——", a: [
+  ]},
+  { q: "你正在减重，但朋友端来了你最爱的甜点。你会——", a: [
     ["尝一小口，然后放下。", "gluttony", "joy"],
     ["吃光，然后明天加倍运动。", "gluttony", "desire"],
     ["忍住，看着朋友吃完。", "pride", "sorrow"],
@@ -587,44 +560,44 @@ const QUESTIONS = [
     ["「算了，反正也没人在乎。」", "sloth", "sorrow"],
     ["「我想要的东西，我一定要得到。」", "greed", "desire"]
   ]}
-];// ============ 7 宗罪数据 ============
+];
+// ============ 7 宗罪数据 ============
 const SINS = {
-  pride:    { name: "傲慢", latin: "Superbia", emoji: "👑", color: "#d4a24c",
+  pride:    { name: "傲慢", latin: "Superbia", emoji: "👑",
               profile: "你相信自己高于常人，也愿意为此承担孤独。你的骄傲不是空穴来风，它来自你对自己的高标准。但骄傲也会让你看不见别人的光。",
               advice: "试着在某一刻，允许自己不如别人。不是认输，而是让光有缝隙照进来。" },
-  envy:     { name: "嫉妒", latin: "Invidia", emoji: "👁️", color: "#4a9d5f",
+  envy:     { name: "嫉妒", latin: "Invidia", emoji: "👁️",
               profile: "你敏锐地看见别人的好，然后忍不住对比自己。这种痛不是恶，它说明你心里有想要的东西，只是暂时还没拿到。",
               advice: "把嫉妒当成路标。它指出的，往往是你真正想要的方向。" },
-  wrath:    { name: "暴怒", latin: "Ira", emoji: "🔥", color: "#c9202e",
+  wrath:    { name: "暴怒", latin: "Ira", emoji: "🔥",
               profile: "你的怒火来得快，也烧得旺。你不喜欢被冒犯，也不愿意忍气吞声。愤怒是你的边界感，但有时候它也会烧到你自己。",
               advice: "愤怒是信号，不是武器。先听它想说什么，再决定要不要出手。" },
-  sloth:    { name: "懒惰", latin: "Acedia", emoji: "🌑", color: "#5a5a7a",
+  sloth:    { name: "懒惰", latin: "Acedia", emoji: "🌑",
               profile: "你不是不想动，你是觉得动了也没用。这是一种更深的疲惫，来自对意义的怀疑。你的灵魂需要休息，但休息不是消失。",
               advice: "别逼自己做大事。先做一件五分钟就能完成的小事，意义会慢慢回来。" },
-  greed:    { name: "贪婪", latin: "Avaritia", emoji: "💰", color: "#b8860b",
+  greed:    { name: "贪婪", latin: "Avaritia", emoji: "💰",
               profile: "你永远觉得不够。更多的钱、更多的安全感、更多的掌控。你不是贪心，你是害怕失去。但抓得越紧，越觉得空。",
               advice: "试着数一数你已经拥有的东西，而不是你没得到的。安全感不在外面。" },
-  gluttony: { name: "暴食", latin: "Gula", emoji: "🍷", color: "#8b5a2b",
+  gluttony: { name: "暴食", latin: "Gula", emoji: "🍷",
               profile: "你对感官的快乐毫无抵抗力。美食、好物、舒服的床，你不愿意亏待自己。享受没有错，但过量的快乐会变成麻木。",
               advice: "试着在某一天，少吃一口，少买一件。留一点空缺，感觉会更清晰。" },
-  lust:     { name: "色欲", latin: "Luxuria", emoji: "💋", color: "#b03060",
+  lust:     { name: "色欲", latin: "Luxuria", emoji: "💋",
               profile: "你渴望亲密，渴望被看见、被渴望。你的热情是真实的，但你也容易把一时的迷恋当成永远。爱和欲望，有时候很像。",
               advice: "问问自己：我想要的是这个人，还是这个人给我的感觉？" }
 };
 
 // ============ 7 情绪数据 ============
 const EMOTIONS = {
-  joy:    { name: "喜", emoji: "☀️", desc: "你的底色里有光。即使经历很多，你依然保留着让自己开心起来的能力。这份轻盈是你最珍贵的东西。" },
+  joy:    { name: "喜", emoji: "☀️", desc: "你的底色里有光。即使经历很多，你依然保留着让自己开心起来的能力。" },
   anger:  { name: "怒", emoji: "⚡", desc: "你的情绪有锋芒。你不轻易发脾气，但一旦被触碰底线，你的反应会比谁都直接。" },
-  sorrow: { name: "哀", emoji: "🌧️", desc: "你敏感、细腻，容易共情。别人的难过你会感受到，自己的难过你会藏起来。你不是脆弱，你只是感受得多。" },
-  fear:   { name: "惧", emoji: "🌫️", desc: "你的警觉性很高。你习惯先预想最坏的结果，再决定要不要行动。这不是胆小，是一种保护自己的智慧。" },
+  sorrow: { name: "哀", emoji: "🌧️", desc: "你敏感、细腻，容易共情。别人的难过你会感受到，自己的难过你会藏起来。" },
+  fear:   { name: "惧", emoji: "🌫️", desc: "你的警觉性很高。你习惯先预想最坏的结果，再决定要不要行动。这不是胆小。" },
   love:   { name: "爱", emoji: "💗", desc: "你对在乎的人很用心。你愿意为爱付出，也容易在感情里失衡。你的温柔需要被接住。" },
   hate:   { name: "恶", emoji: "🖤", desc: "你分得清喜欢和讨厌，也敢于承认自己的厌恶。你不装老好人，你的界限感很清晰。" },
   desire: { name: "欲", emoji: "🔥", desc: "你有强烈的想要。无论是物质、成就还是人，你都愿意为之努力。欲望是你的燃料。" }
 };
 
 // ============ 21 种双重罪原型 ============
-// 键是「主罪_副罪」
 const ARCHETYPES = {
   pride_envy:      { name: "高塔之影",     desc: "你既想站在高处，又害怕别人比你更高。你的骄傲和嫉妒是一对双生子，互相喂养，也互相折磨。" },
   pride_wrath:     { name: "裁决之剑",     desc: "你的骄傲带刃。你不允许自己被冒犯，一旦被触碰，你的回应会比对方想象中更锋利。" },
@@ -634,7 +607,7 @@ const ARCHETYPES = {
   pride_lust:      { name: "镜中之焰",     desc: "你的魅力是你的武器。你享受被渴望的感觉，但有时你分不清，你爱的是对方，还是对方眼中的自己。" },
   envy_wrath:      { name: "毒牙",         desc: "你的嫉妒会变成愤怒。你看着别人拥有的东西，心里的火越烧越旺，最后烧向别人，也烧向自己。" },
   envy_sloth:      { name: "灰烬低语",     desc: "你看见别人的光，然后选择把窗帘拉上。不是不想要，而是觉得争不过。你的痛，藏在沉默里。" },
-  envy_greed:      { name: "暗流",         desc: "你不会明着抢，但你会暗暗布局。你的嫉妒让你更清楚自己想要什么，也让你更懂得怎么不动声色地靠近它。" },
+  envy_greed:      { name: "暗流",         desc: "你不会明着抢，但你会暗暗布局。你的嫉妒让你更清楚自己想要什么。" },
   envy_gluttony:   { name: "空盘子",       desc: "你想要的东西很多，但你最想要的，是别人碗里的那一份。你不断往自己盘子里夹，却发现味道始终不对。" },
   envy_lust:       { name: "影子情人",     desc: "你渴望的，常常是别人的拥有。你的爱里有一丝不甘，你的欲望里藏着一句「为什么不是我」。" },
   wrath_sloth:     { name: "闷雷",         desc: "你的愤怒不常爆发，它在你心里积压，变成一种沉沉的倦怠。你不是没有火，只是火被困在灰里。" },
@@ -642,20 +615,21 @@ const ARCHETYPES = {
   wrath_gluttony:  { name: "烈焰饕客",     desc: "你生气的时候会吃东西，或者做别的让自己舒服的事。你的情绪需要一个出口，而你习惯用身体去消化它。" },
   wrath_lust:      { name: "燃烧的拥抱",   desc: "你的爱与怒界限模糊。你可以在同一个夜晚，既想掐死对方，又想抱住对方不放。" },
   sloth_greed:     { name: "沼泽收藏家",   desc: "你想要很多东西，却迟迟不动手。你的收藏夹里堆满了「以后要做」的事，但那个以后一直没有来。" },
-  sloth_gluttony:  { name: "软枕深渊",     desc: "你最喜欢的状态，是什么都不做，舒舒服服地待着。你不追求刺激，你追求的是一种永远不会被打扰的安稳。" },
+  sloth_gluttony:  { name: "软枕深渊",     desc: "你最喜欢的状态，是什么都不做，舒舒服服地待着。你追求的是一种永远不会被打扰的安稳。" },
   sloth_lust:      { name: "温水",         desc: "你的感情是慢热的，甚至是懒散的。你渴望亲密，但你不愿意主动。你想要人陪，但不想费力气去争取。" },
   greed_gluttony:  { name: "无底金库",     desc: "你想要的，永远比现在多。钱、食物、体验、享受，你的欲望没有尽头，你也并不真的想让它有尽头。" },
   greed_lust:      { name: "占有之瞳",     desc: "你的爱带着占有欲。你不仅想要对方，还想对方完完全全属于你。这不是坏，但有时候会让人喘不过气。" },
   gluttony_lust:   { name: "感官极乐者",   desc: "味觉、触觉、视觉、听觉，一切能带来快感的通道你都敞开着。你活得很用力，也很享受。" }
-};
-
+};// ============ 状态 ============
 let sinScores = {};
 let emoScores = {};
 let answers = [];
 let current = 0;
 
 Object.keys(SINS).forEach(function(k){ sinScores[k] = 0; });
-Object.keys(EMOTIONS).forEach(function(k){ emoScores[k] = 0; });// ============ 授权码验证 ============
+Object.keys(EMOTIONS).forEach(function(k){ emoScores[k] = 0; });
+
+// ============ 授权码验证 ============
 async function verifyCode() {
   const code = document.getElementById('codeInput').value.trim();
   const btn = document.getElementById('authBtn');
@@ -779,12 +753,10 @@ function showResult() {
     }
   }
 
-  // 找出主罪和副罪
   const sinList = Object.keys(sinScores).sort(function(a,b){ return sinScores[b] - sinScores[a]; });
   const mainSin = sinList[0];
   const subSin = sinList[1];
 
-  // 找出主情绪
   const emoList = Object.keys(emoScores).sort(function(a,b){ return emoScores[b] - emoScores[a]; });
   const mainEmo = emoList[0];
 
@@ -811,7 +783,6 @@ function showResult() {
 
   document.getElementById('resultAdvice').textContent = sinData.advice;
 
-  // 七维罪之光谱
   const maxSin = Math.max.apply(null, sinList.map(function(k){ return sinScores[k]; })) || 1;
   const statsBox = document.getElementById('statsBox');
   statsBox.innerHTML = '';
@@ -827,7 +798,6 @@ function showResult() {
     statsBox.appendChild(row);
   });
 
-  // 保存结果文字
   window.__resultText = '我在《七宗罪 · 深渊人格图谱》里测出来是：\n' +
     sinData.emoji + ' 主罪：' + sinData.name + '（' + sinData.latin + '）\n' +
     '副罪：' + SINS[subSin].name + '\n' +
